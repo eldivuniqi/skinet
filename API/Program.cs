@@ -1,4 +1,5 @@
 using API.Data;
+using API.Helpers;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -11,8 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddControllers();
+builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<StoreContext>(x=> x.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -33,7 +36,7 @@ using (var scope = app.Services.CreateScope())
         var logger = loggerFactory.CreateLogger<Program>();
         logger.LogError(ex, "An error occurs during migration");
     }
-    app.Run();
+    //app.Run();
 }
 
 // Configure the HTTP request pipeline.
@@ -45,7 +48,9 @@ if (app.Environment.IsDevelopment())
  
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
+
+app.UseStaticFiles();
 
 app.MapControllers();
 

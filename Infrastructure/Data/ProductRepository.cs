@@ -8,7 +8,8 @@ namespace Infrastructure.Data
     public class ProductRepository : IProductRepository
     {
         private readonly StoreContext Context;
-        public ProductRepository(StoreContext context) { 
+        public ProductRepository(StoreContext context)
+        {
             Context = context;
 
         }

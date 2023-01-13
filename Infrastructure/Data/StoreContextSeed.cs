@@ -13,7 +13,7 @@ namespace Infrastructure.Data
             {
                 if (!context.ProductBrands.Any())
                 {
-                    var brandsData = File.ReadAllText("../Infrastructure/Data/SeedData/brands.json");
+                    var brandsData = File.ReadAllText("C:\\Users\\Pyramid-PC\\Desktop\\skinet\\Infrastructure\\Data\\SeedData\\brands.json");
 
                     var brands = JsonSerializer.Deserialize<List<ProductBrand>>(brandsData);
 
@@ -27,7 +27,7 @@ namespace Infrastructure.Data
                 
                 if (!context.ProductTypes.Any())
                 {
-                    var typesData = File.ReadAllText("../Infrastructure/Data/SeedData/types.json");
+                    var typesData = File.ReadAllText("C:\\Users\\Pyramid-PC\\Desktop\\skinet\\Infrastructure\\Data\\SeedData\\types.json");
 
                     var types = JsonSerializer.Deserialize<List<ProductType>>(typesData);
 
@@ -41,7 +41,7 @@ namespace Infrastructure.Data
 
                    if (!context.Products.Any())
                 {
-                    var ProductsData = File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
+                    var ProductsData = File.ReadAllText("C:\\Users\\Pyramid-PC\\Desktop\\skinet\\Infrastructure\\Data\\SeedData\\products.json");
 
                     var products = JsonSerializer.Deserialize<List<Product>>(ProductsData);
 
