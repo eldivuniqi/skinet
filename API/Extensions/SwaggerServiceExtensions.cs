@@ -16,11 +16,12 @@ namespace API.Extensions
             return services;
         }
 
-        public static IApplicationBuilder UseSwaggerDocumenton(this IApplicationBuilder app) { 
+        public static IApplicationBuilder UseSwaggerDocumenton(this IApplicationBuilder app)
+        {
             app.UseSwagger();
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
 
-return app;
+            return app;
         }
     }
 }
